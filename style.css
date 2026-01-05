@@ -13,6 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background 0.6s ease;
 }
 
 /* ===== Container ===== */
@@ -23,6 +24,7 @@ body {
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ===== Heading ===== */
@@ -30,6 +32,24 @@ body {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+}
+
+/* ===== Dark Mode Toggle Button ===== */
+.theme-toggle {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: #111827;
+    color: white;
+    font-size: 14px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.03);
 }
 
 /* ===== Input Box ===== */
@@ -45,6 +65,7 @@ body {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    transition: background-color 0.4s ease, color 0.4s ease, border 0.4s ease;
 }
 
 .input-box button {
@@ -55,85 +76,14 @@ body {
     background-color: #667eea;
     color: white;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .input-box button:hover {
     background-color: #5a67d8;
 }
 
-/* ===== Task List ===== */
-#taskList {
-    list-style: none;
-}
-
-/* ===== Task Item ===== */
-#taskList li {
-    background: #f4f6f8;
-    padding: 10px 12px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#taskList li:hover {
-    background: #e2e8f0;
-}
-
-/* ===== Completed Task ===== */
-#taskList li.completed {
-    text-decoration: line-through;
-    color: gray;
-    background: #d1fae5;
-}
-
-/* ===== Delete Button ===== */
-.delete-btn {
-    background: #ef4444;
-    border: none;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.delete-btn:hover {
-    background: #dc2626;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 480px) {
-    .todo-container {
-        margin: 0 15px;
-    }
-}
-/* ===== Smooth Animations ===== */
-#taskList li {
-    animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Hover polish */
-#taskList li:hover {
-    transform: scale(1.01);
-}
-
-/* ===== Filter Buttons ===== */
+/* ===== Filters ===== */
 .filters {
     display: flex;
     justify-content: space-between;
@@ -155,20 +105,78 @@ body {
     background: #667eea;
     color: white;
 }
-/* ===== Dark Mode Toggle Button ===== */
-.theme-toggle {
+
+/* ===== Stats ===== */
+.todo-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* ===== Clear Button ===== */
+.clear-btn {
     width: 100%;
-    margin-bottom: 15px;
     padding: 8px;
-    border-radius: 5px;
     border: none;
-    cursor: pointer;
-    background: #111827;
+    border-radius: 5px;
+    background: #ef4444;
     color: white;
+    cursor: pointer;
     font-size: 14px;
 }
 
-/* ===== Dark Mode Styles ===== */
+.clear-btn:hover {
+    background: #dc2626;
+}
+
+/* ===== Task List ===== */
+#taskList {
+    list-style: none;
+}
+
+#taskList li {
+    background: #f4f6f8;
+    padding: 10px 12px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    animation: fadeIn 0.3s ease-in;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
+}
+
+#taskList li:hover {
+    transform: scale(1.01);
+}
+
+#taskList li.completed {
+    text-decoration: line-through;
+    color: gray;
+    background: #d1fae5;
+}
+
+/* ===== Delete Button ===== */
+.delete-btn {
+    background: #ef4444;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== DARK MODE ===== */
 body.dark {
     background: linear-gradient(to right, #0f172a, #020617);
 }
@@ -198,52 +206,14 @@ body.dark #taskList li.completed {
     background: #064e3b;
     color: #a7f3d0;
 }
-/* ===== Stats & Clear Button ===== */
-.todo-stats {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0 15px;
-    font-size: 14px;
-    color: #374151;
-}
 
-.clear-btn {
-    width: 100%;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background: #ef4444;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.clear-btn:hover {
-    background: #dc2626;
-}
-
-/* Dark mode support */
 body.dark .todo-stats {
     color: #e5e7eb;
 }
-/* ===== Dark Mode Smooth Transition ===== */
-body,
-.todo-container,
-input,
-#taskList li,
-button {
-    transition: background-color 0.4s ease, color 0.4s ease, border 0.4s ease;
-}
 
-/* Dark mode polish */
-body.dark {
-    transition: background 0.6s ease;
-}
-/* ===== Dark Mode Toggle Micro Animation ===== */
-.theme-toggle {
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.03);
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .todo-container {
+        margin: 0 15px;
+    }
 }
