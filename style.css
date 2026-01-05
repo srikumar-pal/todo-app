@@ -1,0 +1,249 @@
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Body ===== */
+body {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Container ===== */
+.todo-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== Heading ===== */
+.todo-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ===== Input Box ===== */
+.input-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-box button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #667eea;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-box button:hover {
+    background-color: #5a67d8;
+}
+
+/* ===== Task List ===== */
+#taskList {
+    list-style: none;
+}
+
+/* ===== Task Item ===== */
+#taskList li {
+    background: #f4f6f8;
+    padding: 10px 12px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#taskList li:hover {
+    background: #e2e8f0;
+}
+
+/* ===== Completed Task ===== */
+#taskList li.completed {
+    text-decoration: line-through;
+    color: gray;
+    background: #d1fae5;
+}
+
+/* ===== Delete Button ===== */
+.delete-btn {
+    background: #ef4444;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .todo-container {
+        margin: 0 15px;
+    }
+}
+/* ===== Smooth Animations ===== */
+#taskList li {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover polish */
+#taskList li:hover {
+    transform: scale(1.01);
+}
+
+/* ===== Filter Buttons ===== */
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.filters button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: #e5e7eb;
+}
+
+.filters button.active {
+    background: #667eea;
+    color: white;
+}
+/* ===== Dark Mode Toggle Button ===== */
+.theme-toggle {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: #111827;
+    color: white;
+    font-size: 14px;
+}
+
+/* ===== Dark Mode Styles ===== */
+body.dark {
+    background: linear-gradient(to right, #0f172a, #020617);
+}
+
+body.dark .todo-container {
+    background: #020617;
+    color: #e5e7eb;
+}
+
+body.dark h1 {
+    color: #e5e7eb;
+}
+
+body.dark input {
+    background: #020617;
+    color: white;
+    border: 1px solid #334155;
+}
+
+body.dark #taskList li {
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+}
+
+body.dark #taskList li.completed {
+    background: #064e3b;
+    color: #a7f3d0;
+}
+/* ===== Stats & Clear Button ===== */
+.todo-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.clear-btn {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.clear-btn:hover {
+    background: #dc2626;
+}
+
+/* Dark mode support */
+body.dark .todo-stats {
+    color: #e5e7eb;
+}
+/* ===== Dark Mode Smooth Transition ===== */
+body,
+.todo-container,
+input,
+#taskList li,
+button {
+    transition: background-color 0.4s ease, color 0.4s ease, border 0.4s ease;
+}
+
+/* Dark mode polish */
+body.dark {
+    transition: background 0.6s ease;
+}
+/* ===== Dark Mode Toggle Micro Animation ===== */
+.theme-toggle {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.03);
+}

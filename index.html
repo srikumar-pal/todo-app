@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="todo-container">
+        <h1>📝 To-Do List</h1>
+        <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
+
+
+        <div class="input-box">
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <button id="addBtn">Add</button>
+        </div>
+        <div class="filters">
+           <button class="active" id="allBtn">All</button>
+           <button id="pendingBtn">Pending</button>
+           <button id="completedBtn">Completed</button>
+        </div>
+        <div class="todo-stats">
+           <span id="totalCount">Total: 0</span>
+           <span id="completedCount">Completed: 0</span>
+           <span id="pendingCount">Pending: 0</span>
+        </div>
+
+        <button id="clearAllBtn" class="clear-btn">🗑️ Clear All</button>
+
+
+        <ul id="taskList">
+            <!-- Tasks will appear here -->
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
