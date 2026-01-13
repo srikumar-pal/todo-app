@@ -1,4 +1,7 @@
-<img width="578" height="754" alt="Screenshot 2026-01-05 192748" src="https://github.com/user-attachments/assets/fe7406c9-2643-4710-a75f-167d07239813" />
+
+<img width="771" height="815" alt="Screenshot 2026-01-05 170914" src="https://github.com/user-attachments/assets/b1572da0-3008-4bd2-a906-c1771487fd6d" />
+
+
 # 📝 To-Do List Web Application
 
 A clean and responsive **To-Do List Web Application** built using **HTML, CSS, and JavaScript**.  
